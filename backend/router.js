@@ -1,6 +1,6 @@
 const Router = require('@koa/router');
 const router = new Router();
-const tokens = require('./tokens.json');
+const tokens = require('./tokens.json'); //'./tokens.json'
 
 router.get('/:tokenId', async (ctx, next) => {
   const token = tokens[ctx.params.tokenId];
