@@ -1,0 +1,207 @@
+<html>
+
+<head>
+  <head> 
+    <style>
+      .dropbtn {
+        background-color:aliceblue;
+        padding:8px;
+        font-size:15px;
+        border:none;
+      }
+      .home {
+        background-color:aliceblue;
+        padding:8px;
+        font-size:15px;
+        border:none;
+      }
+      .home a {
+        color : black;
+      }
+      .dropdown{
+        position:relative;
+        display:inline-block;
+      }
+      .dropdown1{
+        position:relative;
+        display:inline-block;
+      }.dropdown2{
+        position:relative;
+        display:inline-block;
+      }.dropdown3{
+        position:relative;
+        display:inline-block;
+      }.dropdown4{
+        position:relative;
+        display:inline-block;
+      }.dropdown5{
+        position:relative;
+        display:inline-block;
+      }.dropdown6{
+        position:relative;
+        display:inline-block;
+      }.dropdown7{
+        position:relative;
+        display:inline-block;
+      }.dropdown8{
+        position:relative;
+        display:inline-block;
+      }
+      .dropdown9{
+        position:relative;
+        display:inline-block;
+      }
+      .dropdown-content{
+        display:none;
+        position:absolute;
+        background-color : #ffdab9;
+        min-width: 75px;
+        padding: 0px;
+       margin : 0px;
+        box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2) ;
+      }
+      .dropdown-content a {
+       color:black;
+       padding: 0px;
+       margin : 0px;
+       text-decoration: none;
+       display:block;
+       font-size: 13px;
+       line-height: 26px;
+      }
+     
+      .dropdown .dropdown-content a:hover {background-color: #ffdab9;}
+      .dropdown:hover .dropdown-content{display: block;}
+      .dropdown:hover .dropbtn{background-color: #ffdab9;}
+    
+      .dropdown1 .dropdown-content a:hover {background-color: #ffdab9;}
+      .dropdown1:hover .dropdown-content{display: block;}
+      .dropdown1:hover .dropbtn{background-color: #ffdab9;}
+    
+      .dropdown2 .dropdown-content a:hover {background-color: #ffdab9;}
+      .dropdown2:hover .dropdown-content{display: block;}
+      .dropdown2:hover .dropbtn{background-color: #ffdab9;}
+      
+      .dropdown3 .dropdown-content a:hover {background-color: #ffdab9;}
+      .dropdown3:hover .dropdown-content{display: block;}
+      .dropdown3:hover .dropbtn{background-color: #ffdab9;}
+    
+      .dropdown4 .dropdown-content a:hover {background-color: #ffdab9;}
+      .dropdown4:hover .dropdown-content{display: block;}
+      .dropdown4:hover .dropbtn{background-color: #ffdab9;}
+      
+      .dropdown5 .dropdown-content a:hover {background-color: #ffdab9;}
+      .dropdown5:hover .dropdown-content{display: block;}
+      .dropdown5:hover .dropbtn{background-color: #ffdab9;}
+      
+      .dropdown6 .dropdown-content a:hover {background-color: #ffdab9;}
+      .dropdown6:hover .dropdown-content{display: block;}
+      .dropdown6:hover .dropbtn{background-color: #ffdab9;}
+      
+      .dropdown7 .dropdown-content a:hover {background-color: #ffdab9;}
+      .dropdown7:hover .dropdown-content{display: block;}
+      .dropdown7:hover .dropbtn{background-color: #ffdab9;}
+      
+      .dropdown8 .dropdown-content a:hover {background-color: #ffdab9;}
+      .dropdown8:hover .dropdown-content{display: block;}
+      .dropdown8:hover .dropbtn{background-color: #ffdab9;}
+      
+      .dropdown9 .dropdown-content a:hover {background-color: #ffdab9;}
+      .dropdown9:hover .dropdown-content{display: block;}
+      .dropdown9:hover .dropbtn{background-color: #ffdab9;}
+      
+</style>
+
+</head>
+<body>
+  <div className='container'>
+        
+    <div class="dropdown">
+      <button class="dropbtn">문서</button>
+      <div class="dropdown-content">
+        <a href="">문서등록</a>
+        <a href="">문서 조회</a>
+      </div>
+      </div>
+      &nbsp;
+
+      <div class="dropdown3">
+    <button class="dropbtn">로그인</button>
+      <div class="dropdown-content">
+        <a href="href\login.html">로그인</a>
+        <a href="">로그아웃</a>
+      </div>
+      </div>
+      &nbsp;
+
+      <div class="dropdown4">
+      <button class="dropbtn">마이페이지</button>
+      <div class="dropdown-content">
+        <a href="#">문서 등록 이력(공무원)</a>
+        <a href="#">내 정보 관리/로그아웃</a>
+      </div>
+      </div>
+      &nbsp;
+
+    <div class="dropdown5">
+      <button class="dropbtn">회원가입</button>
+      <div class="dropdown-content">
+        <a href="href\signup.html">회원가입</a>
+      </div>
+      </div>
+      &nbsp;
+      
+      <div class="dropdown7">
+      <button class="dropbtn">사용자 관리(Admin)</button>
+      <div class="dropdown-content">
+        <a href="#">회원가입 승인/거부</a>
+        <a href="#">회원관리</a>
+      </div>
+      </div>
+      &nbsp;
+
+      <button class="home"><a href="#">홈</a></button>
+
+
+       <br>
+       </br>
+       <br>
+       </br>
+       <br>
+       </br>
+       <br>
+       </br>
+       <br></br>
+       <br>
+       </br>
+       <div className='row'>
+        <div className='col-sm-12'>
+          <h1 className='text-center'>{tokenInfo.name}</h1>
+          <div className="jumbotron">
+            <p className="lead text-center">{tokenInfo.description}</p>
+            <img src={tokenInfo.image} className="img-fluid" />
+          </div>
+        </div>
+      </div>
+    
+</div>
+
+</body>
+<script>
+  src=".\ethereum.js"
+  const [tokenInfo, setTokenInfo] = useState(undefined);
+
+  useEffect(() => {
+    const init = async () => {
+      const { nft } = await getBlockchain();
+      const tokenURI = await nft.tokenURI(0);
+      const { data } = await axios.get(tokenURI);
+      setTokenInfo(data.result);
+    };
+    init();
+  }, []);
+
+
+
+</script>
+</html>
