@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>문서등록</title>
+        <meta charset="utf-8"/>
+        
+    </head>
+    <body>
+        <h1>하청업체 문서등록</h1>
+        <form method="post" enctype="multipart/form-datd" action="subcontractor.php">
+           
+                <input type="radio" name="chk_info" onclick="location.href='client.html'" value="0" >client
+               <input type="radio" name="chk_info" onclick="location.href='responsible.html'" value="1"> responsible
+               <input type="radio" name="chk_info" onclick="location.href='consignment.html'" value="2" >consignment
+               <input type="radio" name="chk_info" onclick="location.href='subcontractor.html'" value="3" checked>subcontractor
+           <br>
+            문서명<br/>
+            <input type="text" name="doc_name"/>
+            <br/>
+
+            문서번호<br/>
+            <input type="text" name="doc_num"/>
+            <br/>
+
+            프로젝트명</br>
+            <input type="text" name="proj_name"/>
+            <br/>
+
+            하청업체<br/>
+            <input type="text" name="Sub_agency"/>
+            <br/>
+
+            업체 대표자<br/>
+            <input type="text" name="Sub_ceo"/>
+            <br/>
+
+            담당 부서명<br/>
+            <input type="text" name="dpt"/>
+            <br/>
+
+            담당 부서원명단<br/>
+            <input type="text" name="dpt_list"/>
+            <br/>
+
+            계약일<br/>
+            <input type="date" name="con_day" value="2021-10-08"/>
+            <br/>
+
+            계약담당자<br/>
+            <input type="text" name="con_mgr" />
+            <br/>
+
+            계약 결재자<br/>
+            <input type="text" name="con_app"/>
+            <br/>
+
+            착수일정<br/>
+            <input type="date" name="start_sch" value="2021-10-08"/>
+            <br/>
+
+            마감일정<br/>
+            <input type="date" name="dead_sch" value="2021-10-08"/>
+            <br/>           
+
+            착수자 명단<br/>
+            <input type="text" name="supervisor"/>
+            <br/>
+
+            
+            총 예산<br/>
+            <input type="text" name="budget"/>
+            <br/>
+
+            
+            예산 담당자<br/>
+            <input type="text" name="bud_mgr"/>
+            <br/>
+
+            
+            예산 결재자<br/>
+            <input type="text" name="bud_app"/>
+            <br/>
+
+            
+            업무 인수인계자<br/>
+            <input type="text" name="taker"/>
+            <br/>
+
+            <br/>
+            문서 선택<br/>
+            <input type="file" name="userimg"/>
+            <br/>
+            <br/>
+            <br/>
+            <input type="submit" value="문서등록"/>
+        </form>
+    </body>
+</html>
